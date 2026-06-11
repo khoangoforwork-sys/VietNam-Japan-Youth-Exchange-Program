@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vietnam–Japan Youth Exchange 2025 · A Journey of Sustainable Minds & Global Ties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #D42B2B;
+    --crimson: #C0392B;
+    --red-soft: #F4E0DF;
+    --navy: #1A2340;
+    --navy-mid: #243058;
+    --gold: #C9A84C;
+    --gold-light: #F5E6BB;
+    --ivory: #FAF8F4;
+    --slate: #6B7280;
+    --white: #FFFFFF;
+    --dark: #0F1420;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLL PROGRESS ── */
+  #progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    width: 0%; z-index: 9999;
+    transition: width 0.1s linear;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 16px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(15,20,32,0.7);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s;
+  }
+  .nav-brand {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px; letter-spacing: 2px;
+    color: var(--gold);
+  }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('10.jpg') center/cover no-repeat;
+    filter: brightness(0.3) saturate(0.7);
+    transform: scale(1.05);
+    transition: transform 8s ease;
+  }
+  .hero:hover .hero-bg { transform: scale(1.0); }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(26,35,64,0.7) 0%, rgba(196,57,43,0.15) 100%);
+  }
+  .hero-content {
+    position: relative; text-align: center; padding: 0 24px;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 1s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 7vw, 88px);
+    font-weight: 900; line-height: 1.0;
+    margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s 0.6s forwards;
+  }
+  .hero-title span { color: var(--gold); }
+  .hero-sub {
+    font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.75);
+    max-width: 600px; margin: 0 auto 40px;
+    opacity: 0; animation: fadeUp 1s 0.9s forwards;
+  }
+  .hero-flags {
+    font-size: 28px; margin-bottom: 16px;
+    opacity: 0; animation: fadeUp 1s 1.1s forwards;
+  }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold); font-size: 12px; letter-spacing: 2px;
+    padding: 8px 24px; border-radius: 40px;
+    opacity: 0; animation: fadeUp 1s 1.2s forwards;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.4);
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll::after {
+    content: ''; display: block; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 40px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .section-text {
+    font-size: 16px; line-height: 1.9; color: rgba(255,255,255,0.7);
+    max-width: 680px; margin-bottom: 48px;
+  }
+
+  /* ── STATS ── */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 32px; margin: 60px 0;
+  }
+  .stat-box {
+    text-align: center; padding: 32px 16px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    background: rgba(201,168,76,0.05);
+    backdrop-filter: blur(8px);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), #E8C97A);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-label { font-size: 11px; letter-spacing: 1.5px; color: rgba(255,255,255,0.5); margin-top: 6px; text-transform: uppercase; }
+
+  /* ── PHOTO GRID STYLES ── */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-top: 48px;
+  }
+  .photo-grid img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    border-radius: 8px; transition: transform 0.4s, filter 0.4s;
+    filter: brightness(0.9);
+    cursor: pointer;
+  }
+  .photo-grid img:hover { transform: scale(1.03); filter: brightness(1); }
+  .photo-grid .wide { grid-column: span 2; }
+  .photo-grid .tall { grid-row: span 2; }
+
+  /* ── MASONRY ── */
+  .masonry {
+    columns: 3; gap: 14px; margin-top: 48px;
+  }
+  .masonry img {
+    width: 100%; margin-bottom: 14px; border-radius: 8px;
+    break-inside: avoid; display: block;
+    transition: transform 0.4s; cursor: pointer;
+  }
+  .masonry img:hover { transform: scale(1.02); }
+
+  /* ── POLAROID ── */
+  .polaroid-row {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    justify-content: center; margin-top: 48px;
+  }
+  .polaroid {
+    background: #fff; padding: 12px 12px 36px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    max-width: 260px; transform: rotate(var(--r, 0deg));
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .polaroid:hover { transform: rotate(0deg) scale(1.05); }
+  .polaroid img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .polaroid-cap { text-align: center; margin-top: 10px; font-size: 13px; color: #333; font-family: 'Playfair Display', serif; font-style: italic; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; margin-top: 60px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    transform: translateX(-50%);
+  }
+  .tl-item {
+    display: grid; grid-template-columns: 1fr 60px 1fr;
+    align-items: center; gap: 0; margin-bottom: 60px;
+  }
+  .tl-item:nth-child(even) .tl-content { grid-column: 3; }
+  .tl-item:nth-child(even) .tl-empty { grid-column: 1; grid-row: 1; }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--gold); margin: 0 auto;
+    box-shadow: 0 0 16px var(--gold);
+  }
+  .tl-content {
+    padding: 20px 28px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+  }
+  .tl-date { font-size: 10px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; text-transform: uppercase; }
+  .tl-title { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 8px; }
+  .tl-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  /* ── SUMMIT (flagship) ── */
+  .summit-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #0F1420 50%, #1A0A0A 100%);
+    position: relative; overflow: hidden;
+  }
+  .summit-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(196,57,43,0.15) 0%, transparent 60%);
+  }
+  .summit-award {
+    text-align: center; padding: 80px 40px;
+    position: relative;
+  }
+  .award-icon {
+    font-size: 64px; margin-bottom: 24px;
+    animation: pulse 3s infinite;
+  }
+  .award-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 72px);
+    font-weight: 900; letter-spacing: 4px; text-transform: uppercase;
+    background: linear-gradient(135deg, #C9A84C, #F5E6BB, #C9A84C);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+  }
+  .award-sub {
+    font-size: 14px; letter-spacing: 2px; color: rgba(255,255,255,0.6);
+    margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;
+  }
+  .award-divider {
+    width: 120px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 32px auto;
+  }
+
+  .summit-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; margin-top: 40px;
+  }
+  .summit-gallery img {
+    width: 100%; object-fit: cover; border-radius: 12px;
+    filter: brightness(0.9);
+    transition: filter 0.3s, transform 0.4s;
+    cursor: pointer;
+  }
+  .summit-gallery img:hover { filter: brightness(1.05); transform: scale(1.02); }
+  .summit-gallery .full { grid-column: span 2; max-height: 480px; }
+
+  .sdg-strip {
+    display: flex; flex-wrap: wrap; gap: 12px; margin: 40px 0;
+    justify-content: center;
+  }
+  .sdg-chip {
+    padding: 8px 20px; border-radius: 40px;
+    font-size: 12px; letter-spacing: 1px; font-weight: 600;
+    border: 1px solid; transition: transform 0.2s;
+    cursor: default;
+  }
+  .sdg-chip:hover { transform: scale(1.1); }
+
+  /* ── CULTURAL EXCHANGE ── */
+  .culture-section { background: var(--navy); }
+  .three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 48px; }
+  .story-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .story-card:hover { transform: translateY(-6px); }
+  .story-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .story-card-body { padding: 20px; }
+  .story-card-tag { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .story-card-title { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 10px; }
+  .story-card-text { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  /* ── CINEMATIC ENDING ── */
+  .ending-section {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+  .ending-collage {
+    position: absolute; inset: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px; opacity: 0.25; filter: saturate(0.6);
+  }
+  .ending-collage img { width: 100%; height: 100%; object-fit: cover; }
+  .ending-overlay {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(15,20,32,0.5) 0%, rgba(15,20,32,0.9) 80%);
+  }
+  .ending-content {
+    position: relative; text-align: center; padding: 40px 24px;
+    max-width: 800px;
+  }
+  .ending-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 32px);
+    font-style: italic; line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 48px;
+  }
+  .ending-quote em { color: var(--gold); font-style: normal; }
+  .ending-title {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .ending-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 48px);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), #fff, var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .ending-sub { font-size: 14px; color: rgba(255,255,255,0.5); letter-spacing: 1px; }
+  .ending-flags { font-size: 36px; margin: 32px 0; }
+
+  /* ── LIGHTBOX ── */
+  #lightbox {
+    display: none; position: fixed; inset: 0; z-index: 10000;
+    background: rgba(0,0,0,0.93);
+    align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox img {
+    max-width: 90vw; max-height: 90vh;
+    border-radius: 8px; object-fit: contain;
+  }
+  #lb-close {
+    position: absolute; top: 24px; right: 32px;
+    font-size: 32px; color: white; cursor: pointer;
+    background: none; border: none; line-height: 1;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+  @keyframes countUp { from { opacity: 0; } to { opacity: 1; } }
+
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── FLOATING DECO ── */
+  .deco-float {
+    position: absolute; pointer-events: none;
+    font-size: 80px; opacity: 0.04;
+    animation: floatDeco 12s ease-in-out infinite;
+  }
+  @keyframes floatDeco {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  /* ── GLASS CARD ── */
+  .glass {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 40px;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    section { padding: 70px 20px; }
+    .three-col, .summit-gallery, .photo-grid { grid-template-columns: 1fr; }
+    .photo-grid .wide, .summit-gallery .full { grid-column: span 1; }
+    .masonry { columns: 2; }
+    .timeline::before { left: 20px; }
+    .tl-item { grid-template-columns: 40px 1fr; }
+    .tl-empty { display: none; }
+    .tl-item:nth-child(even) .tl-content { grid-column: 2; }
+    .tl-dot { margin: 0; }
+    .ending-collage { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(4,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lb-close" onclick="closeLB()">&times;</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">ベトナム–日本 青少年交流 2025</div>
+  <ul class="nav-links">
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#culture">Culture</a></li>
+    <li><a href="#summit">Summit</a></li>
+    <li><a href="#ending">Legacy</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <span class="deco-float" style="top:10%;left:5%;">🌸</span>
+  <span class="deco-float" style="top:20%;right:8%;animation-delay:-4s;">⛩️</span>
+  <span class="deco-float" style="bottom:15%;left:12%;animation-delay:-8s;">🎋</span>
+  <div class="hero-content">
+    <div class="hero-eyebrow">August 1–14, 2025 · Ho Chi Minh City & Vinh Long</div>
+    <h1 class="hero-title">Sustainable Minds,<br><span>Global Ties</span></h1>
+    <p class="hero-sub">A premium documentary of one student's transformative journey through the Vietnam–Japan Youth Exchange Program 2025 — selected as Top 10 Outstanding Student Representative.</p>
+    <div class="hero-flags">🇻🇳 &nbsp;✕&nbsp; 🇯🇵</div>
+    <div class="hero-badge">University of Economics Ho Chi Minh City × Tokyo Keizai University</div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- STATS -->
+<section style="background:var(--navy-mid);padding:70px 40px;">
+  <div class="section-inner">
+    <div class="stats-row reveal" id="stats-row">
+      <div class="stat-box">
+        <div class="stat-num" data-target="14">0</div>
+        <div class="stat-label">Days of Exchange</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="2">0</div>
+        <div class="stat-label">Universities United</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="10">0</div>
+        <div class="stat-label">Top Outstanding Representatives</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="1">0</div>
+        <div class="stat-label">Best Summit Project</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="17">0</div>
+        <div class="stat-label">SDGs Explored</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPENING CEREMONY & GROUP -->
+<section id="journey" style="background:var(--dark);">
+  <div class="section-inner">
+    <div class="section-label reveal">Chapter 01 · Opening</div>
+    <h2 class="section-title reveal">Where Two Worlds<br>First Met</h2>
+    <p class="section-text reveal">Competing against hundreds of applicants, only a handful were chosen to represent UEH in this prestigious bilateral program. The moment we walked into the opening ceremony, we understood why this selection mattered — we weren't just students anymore. We were ambassadors.</p>
+
+    <div class="photo-grid reveal">
+      <div style="position:relative;">
+        <img src="10.jpg" alt="Opening ceremony group photo" onclick="openLB(this)" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;cursor:pointer;">
+        <div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.6);padding:6px 14px;border-radius:20px;font-size:11px;letter-spacing:1px;color:var(--gold);">Opening Ceremony</div>
+      </div>
+      <div style="position:relative;grid-column:span 2;" id="wide-img-1">
+        <img src="2.jpg" alt="Vietnam-Japan Youth Exchange group" onclick="openLB(this)" style="width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:8px;cursor:pointer;object-position:center top;">
+        <div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.6);padding:6px 14px;border-radius:20px;font-size:11px;letter-spacing:1px;color:var(--gold);">VJY 2025 — Culture Day</div>
+      </div>
+    </div>
+    <p class="section-text reveal" style="margin-top:32px;font-style:italic;color:rgba(255,255,255,0.5);">"The lanyard around our necks wasn't just an ID. It was permission to dream bigger than our classrooms."</p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section style="background:linear-gradient(180deg,var(--dark) 0%,var(--navy) 100%);">
+  <div class="section-inner">
+    <div class="section-label reveal">The Journey</div>
+    <h2 class="section-title reveal">14 Days That Changed<br>Everything</h2>
+
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-date">Aug 1 · Day 1</div>
+          <div class="tl-title">Opening Ceremony</div>
+          <div class="tl-desc">Delegates from UEH and Tokyo Keizai gathered for the first time — nervous, curious, already forming connections that would outlast the program.</div>
+        </div>
+        <div class="tl-dot"></div>
+        <div></div>
+      </div>
+      <div class="tl-item">
+        <div></div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">Aug 3–4 · Days 3–4</div>
+          <div class="tl-title">Language Exchange & Cultural Workshops</div>
+          <div class="tl-desc">Vietnamese and Japanese students became each other's teachers — broken phrases, shared laughter, and the realization that communication transcends language.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-date">Aug 7 · Day 7</div>
+          <div class="tl-title">Culture Day</div>
+          <div class="tl-desc">Kimono meets áo dài. Traditional games, performances, and food turned cultural differences into the evening's greatest celebration.</div>
+        </div>
+        <div class="tl-dot"></div>
+        <div></div>
+      </div>
+      <div class="tl-item">
+        <div></div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">Aug 8–10 · Days 8–10</div>
+          <div class="tl-title">Vinh Long & Mekong Delta Journey</div>
+          <div class="tl-desc">Among bamboo groves and river deltas, urban students discovered sustainability through the eyes of communities living in harmony with nature.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-date">Aug 12–13 · Days 12–13</div>
+          <div class="tl-title">Student Summit 2025</div>
+          <div class="tl-desc">Months of research crystallized into a 20-minute presentation before professors, delegates, and peers. Our team's project on Free Child Organization was selected as the best.</div>
+        </div>
+        <div class="tl-dot"></div>
+        <div></div>
+      </div>
+      <div class="tl-item">
+        <div></div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">Aug 14 · Final Day</div>
+          <div class="tl-title">Farewell & Legacy</div>
+          <div class="tl-desc">Goodbyes are hardest when you've shared something transformative. We left with awards, friendships, and the quiet understanding that we had grown.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE DAY -->
+<section id="culture" class="culture-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Chapter 02 · Cultural Exchange</div>
+    <h2 class="section-title reveal">When Cultures Dance<br>Together</h2>
+    <p class="section-text reveal">Culture Day wasn't just a performance — it was a revelation. Watching Japanese students bow in kimono while Vietnamese students clapped along to traditional melodies, you realized that beneath every cultural difference lies a shared human longing: to be understood, to belong, to celebrate.</p>
+
+    <!-- Polaroids from culture day -->
+    <div class="polaroid-row reveal">
+      <div class="polaroid" style="--r:-3deg;" onclick="openLB(this.querySelector('img'))">
+        <img src="9.jpg" alt="Culture Day group">
+        <div class="polaroid-cap">Culture Day · Aug 7</div>
+      </div>
+      <div class="polaroid" style="--r:2deg;" onclick="openLB(this.querySelector('img'))">
+        <img src="2.jpg" alt="Youth Exchange group" style="object-position:top;">
+        <div class="polaroid-cap">Two Worlds, One Heart</div>
+      </div>
+      <div class="polaroid" style="--r:-1.5deg;" onclick="openLB(this.querySelector('img'))">
+        <img src="5.jpg" alt="Forest friendship" style="object-fit:cover;">
+        <div class="polaroid-cap">Among the Bamboo</div>
+      </div>
+    </div>
+
+    <!-- Culture Day full photo -->
+    <div class="reveal" style="margin-top:48px;">
+      <img src="8.jpg" alt="Culture Day full celebration" onclick="openLB(this)"
+        style="width:100%;border-radius:16px;cursor:pointer;max-height:700px;object-fit:cover;object-position:center;">
+      <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.45);font-style:italic;text-align:center;">
+        "Through shared food, laughter, and traditional costumes, August 7th became the day all barriers disappeared."
+      </p>
+    </div>
+
+    <!-- Story cards -->
+    <div class="three-col reveal" style="margin-top:64px;">
+      <div class="story-card">
+        <img src="5.jpg" alt="Friendship moments outdoors">
+        <div class="story-card-body">
+          <div class="story-card-tag">Mekong Delta</div>
+          <div class="story-card-title">Where the River Teaches</div>
+          <div class="story-card-text">Under the canopy of bamboo, surrounded by nature's quiet wisdom, Japanese and Vietnamese students discovered that sustainability isn't a policy — it's a way of seeing the world.</div>
+        </div>
+      </div>
+      <div class="story-card">
+        <img src="7.jpg" alt="Official group photo" style="object-position:top;">
+        <div class="story-card-body">
+          <div class="story-card-tag">Opening Ceremony</div>
+          <div class="story-card-title">Chosen from Hundreds</div>
+          <div class="story-card-text">This photo documents the moment we became official delegates — the culmination of applications, interviews, and the belief that we had something meaningful to contribute.</div>
+        </div>
+      </div>
+      <div class="story-card">
+        <img src="9.jpg" alt="Culture Day celebration">
+        <div class="story-card-body">
+          <div class="story-card-tag">Culture Exchange</div>
+          <div class="story-card-title">The Language of Joy</div>
+          <div class="story-card-text">No translator needed when the music starts. Culture Day proved that human connection speaks a universal language — one fluent in smiles, gestures, and shared wonder.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENT SUMMIT — FLAGSHIP -->
+<section id="summit" class="summit-section">
+  <div class="section-inner">
+    <!-- Award Hero -->
+    <div class="summit-award reveal">
+      <div class="award-icon">🏆</div>
+      <div class="award-headline">Best Student Summit Project</div>
+      <div class="award-divider"></div>
+      <p class="award-sub">Recognized by Professor Seki and the Vietnam–Japan Youth Exchange Organizing Committee</p>
+      <p style="font-size:16px;line-height:1.9;color:rgba(255,255,255,0.75);max-width:680px;margin:0 auto 40px;">
+        Among all participating teams, our project on <em style="color:var(--gold);">Free Child Organization</em> was selected as the most outstanding presentation for its innovation, cross-cultural collaboration, and contribution to sustainable development discussions addressing child labor through SDG frameworks.
+      </p>
+
+      <!-- SDG Chips -->
+      <div class="sdg-strip">
+        <span class="sdg-chip" style="background:rgba(229,36,59,0.15);border-color:#E5243B;color:#E5243B;">🎯 SDG 1 · No Poverty</span>
+        <span class="sdg-chip" style="background:rgba(221,166,58,0.15);border-color:#DDA63A;color:#DDA63A;">📚 SDG 4 · Quality Education</span>
+        <span class="sdg-chip" style="background:rgba(63,126,68,0.15);border-color:#3F7E44;color:#56C02B;">⚖️ SDG 8 · Decent Work</span>
+        <span class="sdg-chip" style="background:rgba(19,73,145,0.15);border-color:#1374B7;color:#56A0D3;">🤝 SDG 17 · Partnerships</span>
+      </div>
+    </div>
+
+    <!-- Summit Photos — most important section -->
+    <div class="glass reveal" style="margin-bottom:40px;">
+      <div class="section-label">The Moment of Truth</div>
+      <h3 class="section-title" style="font-size:clamp(22px,3vw,38px);margin-bottom:12px;">Six Students. One Presentation.<br>One Prize.</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:600px;margin-bottom:32px;">
+        Weeks of research, late-night discussions, and cross-cultural collaboration led to this stage. When the FCO poster was raised and the microphone switched on, every preparation found its purpose.
+      </p>
+
+      <div class="summit-gallery">
+        <img src="7.jpg" alt="Team presenting with microphone — Student Summit 2025" class="full" onclick="openLB(this)">
+        <img src="6.jpg" alt="Team holding FCO research poster" onclick="openLB(this)" style="max-height:340px;">
+        <img src="1.jpg" alt="Cross-Cultural Insight presentation slide" onclick="openLB(this)" style="max-height:340px;">
+      </div>
+
+      <!-- Presenting slide close-up -->
+      <div style="margin-top:20px;">
+        <img src="11.jpg" alt="Student presenting — detail" onclick="openLB(this)"
+          style="width:100%;border-radius:12px;max-height:420px;object-fit:cover;cursor:pointer;" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <!-- What we researched -->
+    <div class="three-col reveal">
+      <div class="glass" style="padding:28px;">
+        <div style="font-size:28px;margin-bottom:16px;">🔬</div>
+        <h4 style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px;">The Problem</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;">Child labor remains one of humanity's most persistent injustices — a cycle our team chose to interrupt through the lens of the Free Child Organization model.</p>
+      </div>
+      <div class="glass" style="padding:28px;">
+        <div style="font-size:28px;margin-bottom:16px;">🌐</div>
+        <h4 style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px;">The Solution</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;">We proposed a partnership model connecting Save the Children, ILO, World Vision, and IIECL — a sustainable funding and intervention framework born from two countries thinking as one.</p>
+      </div>
+      <div class="glass" style="padding:28px;">
+        <div style="font-size:28px;margin-bottom:16px;">🏅</div>
+        <h4 style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px;">The Recognition</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;">Professor Seki and the organizing committee awarded our team Best Student Summit Project — validating months of work and the power of international collaboration in solving global challenges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRIENDSHIP MOMENTS -->
+<section style="background:var(--dark);">
+  <div class="section-inner">
+    <div class="section-label reveal">Chapter 03 · Connections</div>
+    <h2 class="section-title reveal">The Friendships That<br>Outlasted the Program</h2>
+    <p class="section-text reveal">Every great journey lives in its quiet moments — the impromptu photo under the bamboo trees, the group hug after a difficult workshop, the shared glance that says "I'm glad we went through this together."</p>
+
+    <div class="masonry reveal">
+      <img src="5.jpg" alt="Bamboo forest friendship group" onclick="openLB(this)">
+      <img src="9.jpg" alt="Culture Day full group" onclick="openLB(this)">
+      <img src="10.jpg" alt="Official opening ceremony" onclick="openLB(this)">
+      <img src="2.jpg" alt="Youth Exchange delegates" onclick="openLB(this)">
+    </div>
+  </div>
+</section>
+
+<!-- CINEMATIC ENDING -->
+<section id="ending" class="ending-section">
+  <div class="ending-collage">
+    <img src="2.jpg" alt="">
+    <img src="5.jpg" alt="">
+    <img src="9.jpg" alt="">
+    <img src="10.jpg" alt="">
+    <img src="7.jpg" alt="">
+    <img src="6.jpg" alt="">
+    <img src="8.jpg" alt="">
+    <img src="1.jpg" alt="">
+    <img src="9.jpg" alt="">
+  </div>
+  <div class="ending-overlay"></div>
+  <div class="ending-content reveal">
+    <div class="ending-flags">🇻🇳 &nbsp;🌸&nbsp; 🇯🇵</div>
+    <blockquote class="ending-quote">
+      "Some journeys end with a goodbye.<br>
+      This one began a lifelong connection<br>
+      between <em>cultures, friendships,</em> and dreams."
+    </blockquote>
+    <div class="award-divider" style="width:80px;"></div>
+    <div class="ending-title">Top 10 Outstanding Student Representative</div>
+    <div class="ending-name">Vietnam–Japan<br>Youth Exchange 2025</div>
+    <div class="ending-sub">University of Economics Ho Chi Minh City</div>
+    <div style="margin-top:48px;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,0.25);text-transform:uppercase;">
+      Sustainable Minds · Global Ties · August 2025
+    </div>
+  </div>
+</section>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (window.scrollY / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => io.observe(r));
+
+  // Animated counters
+  function animateCounters() {
+    document.querySelectorAll('[data-target]').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 40));
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current + (target > 10 ? '' : '');
+        if (current >= target) clearInterval(timer);
+      }, 40);
+    });
+  }
+  const statsObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { animateCounters(); statsObs.disconnect(); }
+  }, { threshold: 0.5 });
+  const statsRow = document.getElementById('stats-row');
+  if (statsRow) statsObs.observe(statsRow);
+
+  // Lightbox
+  function openLB(img) {
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lightbox').addEventListener('click', e => {
+    if (e.target === document.getElementById('lightbox')) closeLB();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+  // Parallax hero bg
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-bg');
+    if (hero) hero.style.transform = `scale(1.05) translateY(${window.scrollY * 0.15}px)`;
+  });
+</script>
+</body>
+</html>
